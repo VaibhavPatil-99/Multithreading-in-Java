@@ -1,0 +1,40 @@
+package MultiThreading;
+
+public class join extends Thread {
+
+	public void run() {
+		
+		String n=Thread.currentThread().getName();
+		for(int i=1;i<=3;i++)
+		{
+			System.out.println(n);
+		}
+	}
+}
+
+package MultiThreading;
+
+public class joinMain {
+	public static void main(String[] args) {
+
+		join t1 = new join ();
+		join t2 = new join ();
+		join  t3 = new join ();
+		
+		t1.setName("Thread 1");
+		t2.setName("Thread 2");
+		t1.setName("Thread 3");
+	
+		t2.start();
+		try {
+			t2.join();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		t1.start();
+		t3.start();
+	}
+
+}
