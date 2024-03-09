@@ -1,0 +1,31 @@
+package MultiThreading;
+
+public class UsingRunInterface implements Runnable{
+
+	public void run() {
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("My child thread");
+		}
+	}
+}
+
+package MultiThreading;
+
+public class UsingRunInterfaceMain {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		UsingRunInterface obj = new UsingRunInterface();
+		Thread t1 = new Thread(obj);
+		t1.start();
+		
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("Main thread");
+		}
+	}
+
+}
+
